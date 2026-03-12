@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Jada 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(255,255,255,.65) 0 2px, transparent 2px 100%),
+radial-gradient(circle at 70% 35%, rgba(255,255,255,.55) 0 2px, transparent 2px 100%),
+linear-gradient(180deg,#ffd9ea 0%, #ffc8df 45%, #ffbfd9 100%);
+background-size:38px 38px, 52px 52px, 100% 100%;
+font-family:'Quicksand',sans-serif;
+text-align:center;
+overflow:hidden;
+}
+
+h1{
+font-family:'Pacifico';
+color:#ff4fa3;
+display:inline-block;
+padding:10px 22px;
+background:rgba(255,255,255,.75);
+border-radius:999px;
+border:2px solid rgba(255,255,255,.95);
+box-shadow:0 8px 18px rgba(205,58,123,.18);
+position:relative;
+}
+
+h1::before,
+h1::after{
+content:"🎀";
+position:absolute;
+top:50%;
+transform:translateY(-52%);
+font-size:20px;
+}
+
+h1::before{
+left:-26px;
+}
+
+h1::after{
+right:-26px;
+}
+
+#cakeScene{
+margin-top:48px;
+}
+
+.cake{
+width:min(84vw,460px);
+height:min(60vw,300px);
+margin:auto;
+position:relative;
+transform:perspective(960px) rotateX(15deg) rotateZ(-3deg);
+transform-origin:center center;
+}
+
+.cake::before{
+content:"";
+position:absolute;
+left:8%;
+right:8%;
+bottom:16px;
+height:34px;
+border-radius:50%;
+background:radial-gradient(65% 100% at 50% 18%, rgba(160,42,98,.35), rgba(160,42,98,0));
+filter:blur(1px);
+pointer-events:none;
+}
+
+.cakeTop{
+position:absolute;
+left:6%;
+right:6%;
+top:28px;
+height:130px;
+border-radius:50%;
+background:
+radial-gradient(125% 100% at 50% 30%, #fff9fd 0%, #ffe9f4 30%, #ffd8ea 62%, #fbb9d7 100%);
+border:3px solid rgba(255,255,255,.9);
+box-shadow:
+inset 0 10px 20px rgba(255,255,255,.72),
+inset 0 -14px 20px rgba(228,105,160,.28),
+0 8px 12px rgba(106,18,67,.2);
+z-index:3;
+}
+
+.cakeTop::before{
+content:"";
+position:absolute;
+inset:14px 24px;
+border-radius:50%;
+border:2px dashed rgba(255,255,255,.8);
+opacity:.8;
+}
+
+.cakeSide{
+position:absolute;
+left:8%;
+right:8%;
+top:88px;
+height:140px;
+border-radius:0 0 42% 42% / 0 0 22% 22%;
+background:linear-gradient(180deg,#ff97c6 0%, #f56ead 45%, #ef5da2 100%);
+box-shadow:
+inset 0 12px 20px rgba(255,255,255,.23),
+inset 0 -18px 24px rgba(169,33,93,.34),
+0 12px 20px rgba(98,17,62,.25);
+z-index:2;
+overflow:hidden;
+}
+
+.cakeSide::before{
+content:"";
+position:absolute;
+left:-2%;
+right:-2%;
+top:-8px;
+height:38px;
+background:
+radial-gradient(circle at 7% 0%, #fff 0 14px, transparent 15px),
+radial-gradient(circle at 18% 0%, #fff 0 11px, transparent 12px),
+radial-gradient(circle at 31% 0%, #fff 0 15px, transparent 16px),
+radial-gradient(circle at 46% 0%, #fff 0 12px, transparent 13px),
+radial-gradient(circle at 59% 0%, #fff 0 14px, transparent 15px),
+radial-gradient(circle at 74% 0%, #fff 0 11px, transparent 12px),
+radial-gradient(circle at 88% 0%, #fff 0 15px, transparent 16px);
+}
+
+.cakeSide::after{
+content:"";
+position:absolute;
+left:10%;
+right:10%;
+bottom:16px;
+height:12px;
+border-radius:999px;
+background:rgba(255,255,255,.35);
+}
+
+.candlesLayer{
+position:absolute;
+inset:6px 14px 8px;
+z-index:4;
+}
+
+.candle{
+position:absolute;
+width:10px;
+height:42px;
+border-radius:4px;
+background:
+repeating-linear-gradient(
+to right,
+#ffffff 0 3px,
+#ffd4e8 3px 6px,
+#ffffff 6px 9px,
+#ffb9d8 9px 12px
+);
+box-shadow:0 3px 6px rgba(0,0,0,.25);
+transform-origin:bottom center;
+}
+
+.flame{
+width:12px;
+height:16px;
+background:radial-gradient(circle at 50% 68%, #ffd56e 0%, #ff9e3f 52%, #ff5a2c 100%);
+border-radius:50%;
+position:absolute;
+left:50%;
+top:-15px;
+transform:translateX(-50%);
+box-shadow:0 0 8px rgba(255,140,70,.9), 0 0 18px rgba(255,170,85,.65);
+animation:flicker .9s ease-in-out infinite;
+}
+
+button{
+padding:12px 28px;
+border:2px solid #fff;
+background:linear-gradient(180deg,#ff7dbb 0%, #ff4fa3 100%);
+color:white;
+border-radius:999px;
+font-size:16px;
+margin-top:34px;
+cursor:pointer;
+font-weight:600;
+box-shadow:0 10px 20px rgba(194,43,108,.28);
+}
+
+#card{
+display:none;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:300px;
+height:400px;
+background:linear-gradient(180deg,#fff 0%, #fff7fb 100%);
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+overflow:hidden;
+border:2px solid #ffd2e7;
+}
+
+#cardFront{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100%;
+font-family:'Pacifico';
+font-size:22px;
+color:#ff4fa3;
+}
+
+#cardInside{
+display:none;
+padding:20px;
+}
+
+#card img{
+width:100%;
+border-radius:15px;
+}
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+background:#ff69b4;
+top:-10px;
+animation:fall 3s linear infinite;
+}
+
+@keyframes flicker{
+0%{transform:translateX(-50%) scale(.9) rotate(-3deg); opacity:.85;}
+50%{transform:translateX(-50%) scale(1.05) rotate(3deg); opacity:1;}
+100%{transform:translateX(-50%) scale(.92) rotate(-2deg); opacity:.9;}
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh) rotate(360deg);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="cakeScene">
+
+<h1>Blow out the candles 🎂</h1>
+
+<div class="cake">
+<div class="cakeTop">
+<div class="candlesLayer" id="candlesLayer"></div>
+</div>
+<div class="cakeSide"></div>
+
+</div>
+
+<button onclick="startMic()">Turn on mic & blow 💨</button>
+
+</div>
+
+<div id="card">
+
+<div id="cardFront">
+Swipe left 💗
+</div>
+
+<div id="cardInside">
+
+<img src="uslol.webp" alt="Us">
+
+<h2>Happy 22nd Birthday Jada 💕</h2>
+
+<p>
+To my beautiful baby, my girlfriend and best friend all in one 💗
+
+I’m so grateful to the universe for putting us together.
+Having you in my life feels like the sweetest blessing, and I’ll never stop thanking life for giving me someone as loving, beautiful, funny, n special as you.
+
+Thank you for being the best girlfriend, my safe place, my biggest smile, and my favorite person all at once.
+You make my world feel softer, brighter, and so much more beautiful just by being in it.
+
+I wish you so many more happy, healthy, and magical years, and I hope I get to celebrate every single one of them right by your side.
+Today is all about you, so enjoy your day, feel extra loved, and remember how deeply loved you are.
+
+Happy 22nd birthday, my baby 💕
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+let audioContext;
+let analyser;
+let microphone;
+
+function generateCandles(){
+
+const layer = document.getElementById("candlesLayer")
+const candleCount = 22
+
+const spots = []
+
+for(let i=0;i<14;i++){
+const angle = (Math.PI * 2 * i) / 14
+spots.push({
+x:50 + Math.cos(angle) * 36,
+y:52 + Math.sin(angle) * 30
+})
+}
+
+for(let i=0;i<8;i++){
+const angle = (Math.PI * 2 * i) / 8 + 0.2
+spots.push({
+x:50 + Math.cos(angle) * 20,
+y:52 + Math.sin(angle) * 16
+})
+}
+
+spots.slice(0,candleCount).forEach(spot=>{
+
+const candle = document.createElement("div")
+candle.className = "candle"
+
+const flame = document.createElement("div")
+flame.className = "flame"
+
+candle.appendChild(flame)
+
+const perspectiveScale = 0.66 + (spot.y / 100) * 0.5
+
+candle.style.left = `calc(${spot.x}% - 5px)`
+candle.style.top = `calc(${spot.y}% - 42px)`
+candle.style.transform = `scale(${perspectiveScale})`
+
+layer.appendChild(candle)
+
+})
+
+}
+
+generateCandles()
+
+async function startMic(){
+
+const stream = await navigator.mediaDevices.getUserMedia({audio:true})
+
+audioContext = new AudioContext()
+
+microphone = audioContext.createMediaStreamSource(stream)
+
+analyser = audioContext.createAnalyser()
+
+microphone.connect(analyser)
+
+detectBlow()
+
+}
+
+function detectBlow(){
+
+const data = new Uint8Array(analyser.frequencyBinCount)
+
+setInterval(()=>{
+
+analyser.getByteFrequencyData(data)
+
+let volume = data.reduce((a,b)=>a+b)/data.length
+
+if(volume > 60){
+blowCandles()
+}
+
+},200)
+
+}
+
+function blowCandles(){
+
+document.querySelectorAll(".flame").forEach(f=>f.style.display="none")
+
+setTimeout(()=>{
+
+document.getElementById("cakeScene").style.display="none"
+
+document.getElementById("card").style.display="block"
+
+},1000)
+
+}
+
+let startX=0
+
+document.getElementById("card").addEventListener("touchstart",e=>{
+startX = e.touches[0].clientX
+})
+
+document.getElementById("card").addEventListener("touchend",e=>{
+
+let endX = e.changedTouches[0].clientX
+
+if(startX - endX > 80){
+
+document.getElementById("cardFront").style.display="none"
+document.getElementById("cardInside").style.display="block"
+
+confetti()
+
+}
+
+})
+
+function confetti(){
+
+for(let i=0;i<60;i++){
+
+let conf = document.createElement("div")
+
+conf.className="confetti"
+
+conf.style.left=Math.random()*100+"vw"
+
+conf.style.animationDuration=(Math.random()*3+2)+"s"
+
+document.body.appendChild(conf)
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
