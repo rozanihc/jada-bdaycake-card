@@ -233,6 +233,7 @@ height:100%;
 box-sizing:border-box;
 overflow-y:auto;
 -webkit-overflow-scrolling:touch;
+overscroll-behavior:contain;
 text-align:left;
 }
 
@@ -248,10 +249,12 @@ margin:0;
 }
 
 #card img{
+display:block;
 width:100%;
+height:auto;
 border-radius:15px;
-max-height:32dvh;
-object-fit:cover;
+max-height:none;
+object-fit:contain;
 }
 
 .confetti{
@@ -462,11 +465,13 @@ document.getElementById("card").style.display="block"
 
 let startX=0
 
-document.getElementById("card").addEventListener("touchstart",e=>{
+const cardFront = document.getElementById("cardFront")
+
+cardFront.addEventListener("touchstart",e=>{
 startX = e.touches[0].clientX
 })
 
-document.getElementById("card").addEventListener("touchend",e=>{
+cardFront.addEventListener("touchend",e=>{
 
 let endX = e.changedTouches[0].clientX
 
